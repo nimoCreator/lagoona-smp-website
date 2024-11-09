@@ -1,0 +1,327 @@
+* {
+    /* outline: solid red 1px; */
+}
+
+#searchPlayer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    width: var(--main_element_width);
+}
+
+#searchbar {
+    --searchbarHeight: min(6rem, 10vw);
+
+    background-color: #dddddd;
+    color: #111111;
+
+    font-weight: 700;
+    border-radius: 0.5rem;
+
+    display: grid;
+    grid-template-columns: var(--searchbarHeight) 1fr var(--searchbarHeight);
+
+    gap: 0.5rem;
+    justify-content: stretch;
+    align-items: center;
+
+    height: var(--searchbarHeight);
+    line-height: var(--searchbarHeight);
+
+    padding: 0.25rem
+}
+
+#searchbar .searchHead {
+    width: var(--searchbarHeight);
+    height: var(--searchbarHeight);
+}
+
+#searchbar .searchHead img {
+    width: var(--searchbarHeight);
+    height: var(--searchbarHeight);
+    object-fit: cover;
+    border-radius: 0.25rem;
+}
+
+#searchbar input {
+    font-size: 2rem;
+    height: 4rem;
+    color: #111111;
+    font-family: Minecraft;
+    margin: 0;
+    border: none;
+    outline: none;
+
+    background-color: transparent;
+
+    padding: 0.5rem 0.75rem 0 0.75rem;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 0.25rem;
+
+    transition: 0.5s;
+}
+#searchbar input:hover,
+#searchbar input:focus,
+#searchbar input:active,
+#searchbar input:focus-within,
+#searchbar input:focus-visible {
+    background-color: #ffffff;
+
+    transition: 0.2s;
+}
+#searchbar input::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 2rem;
+    height: 0.25rem;
+    background-color: red;
+    border-radius: 0.25rem;
+}
+
+
+
+
+#searchbar button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #f0f0f0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+
+    aspect-ratio: 1 / 1;
+
+    transition: 0.5s;
+
+    border: none;
+}
+
+#searchbar button:hover {
+    background-color: #ffffff;
+    box-shadow: 0 0 0.5rem #0004;
+    transform: scale(1.02);
+
+    transition: 0.2s;
+}
+
+#searchbar button:active {
+    background-color: #ddd;
+    transform: scale(0.95);
+
+    transition: 0.01s;
+}
+
+#searchbar button img {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+    transform: rotate(-360deg);
+    transition: transform 0.6s ease;
+
+    animation: spin 2.5s forwards;
+
+    transition: 0.5s;
+}
+
+#searchbar button:hover img {
+    
+    transform: scale(1.1);
+
+    transition: 0.2s;
+}
+
+#searchbar button:hover:active img {
+    animation: none;
+    transform: translateX(0.5rem);
+
+    transition: 0.1s;
+}
+
+#searchbar button:active img {
+
+}
+
+
+
+
+
+
+
+
+.divider {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+
+    white-space: nowrap;
+}
+
+.divider hr {
+    width: 100%;
+    height: 0.25rem;
+    border: none;
+    background-color: #fff;
+    border-radius: 0.125rem;
+}
+
+
+
+.searchResults {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    gap: 0.5rem;
+    margin: 0;
+}
+
+.searchResults .player {
+    position: relative;
+
+    flex-grow: 1;
+
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-content: center;
+
+    gap: 1rem;
+    border-radius: 0.325rem;
+    padding: 0.2rem;
+
+    background-color: #666;
+    box-shadow:
+        inset 0 0 0.125rem #fffa,
+        inset -0.1rem 0 0.25rem #000f,
+        inset 3.4rem 0 0.25rem #000f,
+        inset 0rem 0.1rem 0.25rem #000f,
+        inset 0rem -0.1rem 0.25rem #000f,
+        inset 0 0 4rem #000f,
+        inset 0 2rem 4rem #000f,
+        inset 0 -2rem 4rem #000f;
+    transition: 1s;
+}
+
+.searchResults .player img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.25rem;
+    object-fit: cover;
+    transition: 2s;
+}
+
+.searchResults .player span.nickname {
+    font-size: 1.5rem;
+    color: #fff;
+    font-family: Minecraft;
+    transform: translateY(0.25rem);
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
+    transition: 2s;
+}
+
+.searchResults .player div.extras {
+    z-index: 2;
+    position: absolute;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+
+    width: max(100%, fit-content);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: center;
+    border-radius: 0.5rem 0.5rem;
+    padding: 0.5rem 2rem;
+
+    background-color: #a4f110;
+    box-shadow:
+        inset 0 0 0.125rem #fffa,
+        inset -0.1rem 0 0.5rem #000f,
+        inset 0.1rem 0 0.5rem #000f,
+        inset 0rem 0.1rem 0.5rem #000f,
+        inset 0rem -0.1rem 0.5rem #000f,
+        inset 0 0 4rem #000f,
+        inset 0 2rem 4rem #000f,
+        inset 0 -2rem 4rem #000f;
+    bottom: 3rem;
+    right: 50%;
+    transition: 0.2s;
+    transform: translateX(50%);
+}
+
+.searchResults .player span.last_seen {
+    font-size: 1rem;
+    line-height: 1rem;
+    letter-spacing: 0.125rem;
+    color: #fff;
+    font-family: Minecraft;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.searchResults .player span.power_level {
+    font-size: 1rem;
+    line-height: 1rem;
+    letter-spacing: 0.125rem;
+    color: #a4f110;
+    font-family: Minecraft;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.searchResults .player:hover {
+    transition: 0.4s;
+    background-color: #a4f110;
+    box-shadow:
+        inset 0 0 0.125rem #fffa,
+        inset -0.1rem 0 0.125rem #000f,
+        inset 3.3rem 0 0.125rem #000f,
+        inset 0rem 0.1rem 0.125rem #000f,
+        inset 0rem -0.1rem 0.125rem #000f,
+        inset 0 0 2rem #000f,
+        inset 0 1rem 2rem #000f,
+        inset 0 -1rem 2rem #000f;
+    transform: scale(1.05);
+}
+
+.searchResults .player:hover .nickname {
+    transition: 0.2s;
+    text-shadow: 0 0 0.2rem #000;
+    transform: scale(1.1);
+}
+
+.searchResults .player:hover img {
+    transition: 0.2s;
+    transform: scale(1.1);
+}
+
+.searchResults .player:hover div.extras {
+    bottom: 4rem;
+    opacity: 1;
+    transition: 0.6s;
+    z-index: 2;
+    transform: scale(1.05) translateX(50%);
+}
+
+/* #endregion PLAYERS LIST */

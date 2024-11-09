@@ -1,0 +1,308 @@
+/* #region PLAYERS LIST */
+
+.playersList {
+    border-radius: 0.5rem;
+    text-align: center;
+    width: var(--main_element_width);
+    background-color: #020202;
+    color: #eeeeee;
+}
+
+.playersList .header {
+
+    background-color: #dddddd;
+    color: #111111;
+
+    font-weight: 700;
+    font-size: 2rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playersList .header .sorting {
+    display: flex;
+    flex-direction: row;
+    gap: 0.375rem;
+}
+
+.playersList .header .sorting button {
+    display: flex;
+    align-items: center;
+
+    background-color: #f0f0f0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+
+    aspect-ratio: 1 / 1;
+
+    transition: 0.5s;
+
+    border: none;
+}
+.playersList .header .sorting button:hover {
+    background-color: #ffffff;
+    box-shadow: 0 0 0.5rem #0004;
+    transform: scale(1.02);
+
+    transition: 0.2s;
+}
+.playersList .header .sorting button:active {
+    background-color: #ddd;
+    transform: scale(0.95);
+
+    transition: 0.01s;
+}
+.playersList .header .sorting button img {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+    transform: rotate(-360deg); 
+    transition: transform 0.6s ease;
+
+    animation: spin 2.5s forwards;
+}
+.playersList .header .sorting button:hover img {
+    transform: rotate(-380deg); 
+    transition: transform 0.6s ease;
+}
+.playersList .header .sorting button:hover:active img {
+    transform: rotate(-20deg); 
+    transition: transform 0.0s ease;
+}
+.playersList .header .sorting button:active img {
+    transform: rotate(0deg); 
+    transition: transform 0.0s ease;
+}
+
+
+
+
+
+
+.playersList .content {
+    padding: 0.125rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.playersList .playersListContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    gap: 0.5rem;
+    margin: 0;
+}
+
+.playersList .playersListContainer .player {
+    position: relative;
+
+    flex-grow: 1;
+
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-content: center;
+
+    gap: 1rem;
+    border-radius: 0.325rem;
+    padding: 0.2rem;
+
+    background-color: #666;
+    box-shadow:
+        inset 0 0 0.125rem #fffa,
+        inset -0.1rem 0 0.25rem #000f,
+        inset 3.4rem 0 0.25rem #000f,
+        inset 0rem 0.1rem 0.25rem #000f,
+        inset 0rem -0.1rem 0.25rem #000f,
+        inset 0 0 4rem #000f,
+        inset 0 2rem 4rem #000f,
+        inset 0 -2rem 4rem #000f;
+    transition: 1s;
+}
+
+.playersList .playersListContainer .player img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.25rem;
+    object-fit: cover;
+    transition: 2s;
+}
+
+.playersList .playersListContainer .player span.nickname {
+    font-size: 1.5rem;
+    color: #fff;
+    font-family: Minecraft;
+    transform: translateY(0.25rem);
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
+    transition: 2s;
+}
+
+.playersList .playersListContainer .player div.extras {
+    z-index: 2;
+    position: absolute;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+
+    width: max(100%, fit-content);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: center;
+    border-radius: 0.5rem 0.5rem;
+    padding: 0.5rem 2rem;
+
+    background-color: #a4f110;
+    box-shadow:
+        inset 0 0 0.125rem #fffa,
+        inset -0.1rem 0 0.5rem #000f,
+        inset 0.1rem 0 0.5rem #000f,
+        inset 0rem 0.1rem 0.5rem #000f,
+        inset 0rem -0.1rem 0.5rem #000f,
+        inset 0 0 4rem #000f,
+        inset 0 2rem 4rem #000f,
+        inset 0 -2rem 4rem #000f;
+    bottom: 3rem;
+    right: 50%;
+    transition: 0.2s;
+    transform: translateX(50%);
+}
+
+.playersList .playersListContainer .player span.last_seen {
+    font-size: 1rem;
+    line-height: 1rem;
+    letter-spacing: 0.125rem;
+    color: #fff;
+    font-family: Minecraft;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.playersList .playersListContainer .player span.power_level {
+    font-size: 1rem;
+    line-height: 1rem;
+    letter-spacing: 0.125rem;
+    color: #a4f110;
+    font-family: Minecraft;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.playersList .playersListContainer .player:hover {
+    transition: 0.4s;
+    background-color: #a4f110;
+    box-shadow:
+        inset 0 0 0.125rem #fffa,
+        inset -0.1rem 0 0.125rem #000f,
+        inset 3.3rem 0 0.125rem #000f,
+        inset 0rem 0.1rem 0.125rem #000f,
+        inset 0rem -0.1rem 0.125rem #000f,
+        inset 0 0 2rem #000f,
+        inset 0 1rem 2rem #000f,
+        inset 0 -1rem 2rem #000f;
+    transform: scale(1.05);
+}
+
+.playersList .playersListContainer .player:hover .nickname {
+    transition: 0.2s;
+    text-shadow: 0 0 0.2rem #000;
+    transform: scale(1.1);
+}
+
+.playersList .playersListContainer .player:hover img {
+    transition: 0.2s;
+    transform: scale(1.1);
+}
+
+.playersList .playersListContainer .player:hover div.extras {
+    bottom: 4rem;
+    opacity: 1;
+    transition: 0.6s;
+    z-index: 2;
+    transform: scale(1.05) translateX(50%);
+}
+
+
+
+
+
+
+
+
+
+
+button.loadMore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-color: #f0f0f0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+
+    transition: 0.5s;
+
+    border: none;
+
+    width: calc(100% - 2rem);
+    margin: 1rem;
+}
+button.loadMore:hover {
+    background-color: #ffffff;
+    box-shadow: 0 0 0.5rem #0004;
+    transform: scale(1.02);
+
+    transition: 0.2s;
+}
+button.loadMore:active {
+    background-color: #ddd;
+    transform: scale(0.95);
+
+    transition: 0.01s;
+}
+
+
+
+button.loadMore .dot {
+    width: 0.125rem;
+    height: 0.125rem;
+    border-radius: 50%;
+    background-color: #000;
+    margin-top: 0.5rem;
+    margin-left: 0.125rem;
+}
+button.loadMore:hover .dot
+{
+    animation: jumpies 0.8s calc(var(--delay) * 0.15s) infinite;
+}
+@keyframes jumpies {
+    0%, 50%, 100% {
+        transform: translateY(0);
+    }
+    12.5%, 37.5% {
+        transform: translateY(0.025rem);
+    }
+    25% {
+        transform: translateY(-0.125rem);
+    }
+    
+}
+
+/* #endregion PLAYERS LIST */

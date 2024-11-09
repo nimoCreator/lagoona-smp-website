@@ -1,0 +1,84 @@
+.section#discord {
+    width: var(--main_element_width);
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 1rem;
+
+    
+    background-color: #020202;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.section#discord .header {
+    background-color: #dddddd;
+    color: #111111;
+
+    font-weight: 700;
+    font-size: 2rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.section#discord .content {
+    padding: 0.5rem;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 1rem;
+}
+.section#discord .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section#discord .discord-widget {
+    width: 100%; 
+    display: grid; 
+    gap: 0.5rem; 
+    grid-template-columns: auto 1fr; 
+    justify-items: stretch; 
+    height: 10rem; 
+    height: clamp(30rem, 50vh, 50rem); 
+    align-items: stretch;
+}
+
+.section#discord a {
+    transition: 2s;
+    position: relative;
+    color: #aee44b;
+    text-decoration: none;
+}
+
+.section#discord a:hover {
+    transition: 1s;
+    color: #a4f110;
+}
+
+.section#discord a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #a4f110; /* Choose your desired underline color */
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+.section#discord a:hover::after {
+    transform: scaleX(1);   
+}

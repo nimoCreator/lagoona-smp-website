@@ -1,0 +1,62 @@
+/* #region HEADER */
+
+header#banner {
+    overflow: hidden;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(@/assets/img/banners/header_banner.jpg);
+    background-color: #cccccc; /* Used if the image is unavailable */
+    background-position: 50% 40%; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+
+    box-shadow:
+        inset
+        #0a0a0a
+        0 /* offset-x */
+        calc(-4 * var(--minunit))  /* offset-y */
+        calc(2 * var(--minunit))  /* blur-radius */
+        calc(-2 * var(--minunit))  /* spread-radius */
+        ,
+        inset
+        #0a0a0a
+        calc(-4 * var(--minunit)) /* offset-x */
+        0  /* offset-y */
+        calc(2 * var(--minunit))  /* blur-radius */
+        calc(-2 * var(--minunit))  /* spread-radius */
+        ;
+    /* #000 0rem 3rem 2rem,
+        inset #080808 0rem 0rem 1rem 1rem; */
+}
+header#banner #logo {
+    height: min(25vh, 25vw);
+    width: min(25vh, 25vw);
+    filter: drop-shadow(
+        calc(-0.5 * var(--minunit)) /* offset-x */
+        calc(0.5 * var(--minunit))  /* offset-y */
+        calc(1 * var(--minunit))  /* blur-radius */
+        #111 /* color */
+        );
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+header#banner #name {
+    color: #FFFFFF;
+    user-select: none;
+    font-family: Shaimus Clean;
+    padding-left: calc(2 * var(--minunit));
+    font-size: calc(15 * var(--minunit));
+    filter: drop-shadow(
+        calc(-0.5 * var(--minunit)) /* offset-x */
+        calc(0.5 * var(--minunit))  /* offset-y */
+        calc(1 * var(--minunit))  /* blur-radius */
+        #111 /* color */
+        );
+}
+
+/* endregion HEADER */

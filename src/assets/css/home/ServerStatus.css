@@ -1,0 +1,293 @@
+/* * {
+    outline: solid red 1px;
+} */
+
+#status {
+    width: var(--main_element_width);
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 1rem;
+
+    
+    background-color: #020202;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+}
+
+#status .header {
+    background-color: #dddddd;
+    color: #111111;
+
+    font-weight: 700;
+    font-size: 2rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#status .content {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 1rem;
+}
+
+#status .server_status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#status .server_status .emoji {
+    overflow: visible;
+    height: 1.5em;
+    width: 1.5em;
+    background-color: white;
+    border-radius: 100rem;
+}
+
+.minecraftserver {
+    --scale: 2rem;
+
+    width: clamp(22rem, 60rem, calc(100% - 3rem));
+    box-sizing: border-box;
+    place-self: center;
+    display: grid;
+    grid-template-areas:
+        'icon name players'
+        'icon motd motd';
+    grid-template-columns: calc(5 * var(--scale)) 1fr 1fr;
+    grid-template-rows: calc(1.5 * var(--scale)) calc(2.5 * var(--scale));
+    column-gap: var(--scale);
+    row-gap: calc(0.5 * var(--scale));
+    padding: calc(0.5 * var(--scale));
+    background-color: #222222;
+    border-radius: calc(0.25 * var(--scale));
+
+    font-size: calc(1 * var(--scale));
+    line-height: calc(1 * var(--scale));
+
+    font-family: Minecraft;
+
+    background-image: url('@/assets/img/dirt512.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
+    box-shadow: inset 0 0 0.125rem #fff8, inset 0 0 10rem #000f,
+        inset 0 5rem 10rem #000c, inset 0 -5rem 10rem #000c;
+}
+
+.minecraftserver .icon {
+    grid-area: icon;
+    background-image: url('@/assets/img/logo.svg');
+    background-size: calc(4 * var(--scale));
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.minecraftserver .icon img {
+    width: calc(4 * var(--scale));
+    height: calc(4 * var(--scale));
+}
+
+.minecraftserver .name,
+.minecraftserver .players,
+.minecraftserver .motd {
+    display: flex;
+    align-items: center;
+}
+
+.minecraftserver .name {
+    grid-area: name;
+    justify-content: left;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.mode--offline {
+    color: red;
+}
+
+.minecraftserver .players {
+    grid-area: players;
+    justify-content: right;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: row;
+    gap: calc(0.25 * var(--scale));
+}
+
+.minecraftserver .motd {
+    grid-area: motd;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: calc(0.5 * var(--scale));
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#status .minecraftserver {
+    position: relative;
+}
+#status * {
+    z-index: 2;
+}
+
+#status .minecraftserver::after {
+    content: '';
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+}
+
+
+
+
+
+
+#status .online_players {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    gap: 0.5rem;
+    width: clamp(22rem, 60rem, calc(100% - 3rem));
+    place-self: center;
+}
+
+#status .online_players .player {
+    position: relative;
+
+    flex-grow: 1;
+
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-content: center;
+
+    gap: 1rem;
+    border-radius: 0.25rem 0.5rem 0.5rem 0.25rem;
+    padding: 0.2rem;
+
+    background-color: #666;
+    box-shadow: inset 0 0 0.125rem #fffa, inset -0.1rem 0 0.25rem #000f,
+        inset 3.4rem 0 0.25rem #000f, inset 0rem 0.1rem 0.25rem #000f,
+        inset 0rem -0.1rem 0.25rem #000f, inset 0 0 4rem #000f,
+        inset 0 2rem 4rem #000f, inset 0 -2rem 4rem #000f;
+    transition: 1s;
+}
+#status .online_players .player:hover {
+    transition: 0.4s;
+    background-color: #a4f110;
+    box-shadow:
+        inset 0 0 0.125rem #fffa,
+        inset -0.1rem 0 0.125rem #000f,
+        inset 3.3rem 0 0.125rem #000f,
+        inset 0rem 0.1rem 0.125rem #000f,
+        inset 0rem -0.1rem 0.125rem #000f,
+        inset 0 0 2rem #000f,
+        inset 0 1rem 2rem #000f,
+        inset 0 -1rem 2rem #000f;
+    transform: scale(1.05);
+}
+
+
+#status .online_players .player img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.25rem;
+    object-fit: cover;
+}
+#status .online_players .player:hover img {
+    transition: 0.2s;
+    transform: scale(1.1);
+}
+
+#status .online_players .player .nickname {
+    font-size: 1.5rem;
+    color: #fff;
+    font-family: Minecraft;
+    transform: translateY(0.25rem);
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
+}
+#status .online_players .player:hover .nickname {
+    transition: 0.2s;
+    text-shadow: 0 0 0.2rem #000;
+    transform: scale(1.1);
+}
+
+
+
+#status .online_players .player div.extras {
+    z-index: 2;
+    position: absolute;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+
+    width: max(100%, fit-content);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: center;
+    border-radius: 0.5rem 0.5rem;
+    padding: 0.5rem 2rem;
+
+    background-color: #a4f110;
+    box-shadow:
+        inset 0 0 0.125rem #fffa,
+        inset -0.1rem 0 0.5rem #000f,
+        inset 0.1rem 0 0.5rem #000f,
+        inset 0rem 0.1rem 0.5rem #000f,
+        inset 0rem -0.1rem 0.5rem #000f,
+        inset 0 0 4rem #000f,
+        inset 0 2rem 4rem #000f,
+        inset 0 -2rem 4rem #000f;
+    bottom: 3rem;
+    right: 50%;
+    transition: 0.2s;
+    transform: translateX(50%);
+}
+#status .online_players .player:hover div.extras {
+    bottom: 4rem;
+    opacity: 1;
+    transition: 0.6s;
+    z-index: 2;
+    transform: scale(1.05) translateX(50%);
+}
+#status .online_players .player div.extras span {
+    font-size: 1rem;
+    color: #fff;
+    font-family: Minecraft;
+    transform: translateY(0.25rem);
+
+    white-space: nowrap;
+}
+
+
+
+
+
